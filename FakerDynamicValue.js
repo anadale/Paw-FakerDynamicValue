@@ -1,9 +1,8 @@
 var faker = require('faker.min.js');
 
 var FakerDynamicValue = function() {
-  // implement the evaluate() method to generate the dynamic value
   this.evaluate = function(context) {
-    var dynamicValue = ""; // generate some dynamic value
+    var dynamicValue = "";
 
     _args = this.args.split(',')
 
@@ -13,21 +12,15 @@ var FakerDynamicValue = function() {
       dynamicValue = faker[this.category][this.name](..._args);
     }
     catch(exception) {
-
     }
 
     return dynamicValue;
   }
 }
 
-// set the Extension Identifier (must be same as the directory name)
-FakerDynamicValue.identifier = "com.digillect.PawExtensions.FakerDynamicValue";
-
-// give a display name to your Dynamic Value
+FakerDynamicValue.identifier = "ru.nickonov.PawExtensions.FakerDynamicValue";
 FakerDynamicValue.title = "Faker Dynamic Value";
-
-// link to the Dynamic Value documentation
-FakerDynamicValue.help = "http://github.com/marak/faker.js";
+FakerDynamicValue.help = "http://github.com/anadale/Paw-FakerDynamicValue";
 
 // Inputs
 FakerDynamicValue.inputs = [
@@ -59,5 +52,4 @@ FakerDynamicValue.inputs = [
   InputField("args", "Arguments", "String")
 ];
 
-// call to register function is required
 registerDynamicValueClass(FakerDynamicValue);
